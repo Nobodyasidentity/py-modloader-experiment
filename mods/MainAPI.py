@@ -68,4 +68,5 @@ def get_modified_mixins():
         name for name, orig_fn in originals.items()
         if GAME.MIXINS.get(name) is not orig_fn
     ]
+def fire(event_name, *a, **kw):GAME.fire(event_name, *a, **kw)
 # }
