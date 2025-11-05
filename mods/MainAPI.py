@@ -14,6 +14,11 @@ def exitcode(i=None):
     global GAME
     if not i==None:GAME.C=i
     else:return GAME.C
+
+class _c:
+    @property
+    def clear(self=None):OS.system('cls'if OS.name=='nt'else'clear');return''
+c=_c()
 # CHATGPT CODE {
 # --- Decorator systems ---
 def register(name):
