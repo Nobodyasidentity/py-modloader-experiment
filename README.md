@@ -43,7 +43,7 @@ print(api.exitcode())
 print("Has 'main' been modified?", 'main' in api.get_modified_mixins())
 ```  
 ## examples:  
-`mods/guess_the_number.py` (can be found in `examples` folder):  
+`mods/guess_the_number.py` (can be found in `examples` folder): The terminal will prompt you to guess a random number (1 to 10) and every attempt will tell you if the correct number is smaller or bigger than your input  
 ```py
 import MainAPI as api
 if __name__=='__main__':api.SYS.exit()
