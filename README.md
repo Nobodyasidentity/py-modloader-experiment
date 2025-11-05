@@ -9,7 +9,7 @@ api=__import__('MainAPI')
 if __name__=='__main__':api.SYS.exit()
 ```
 ## MainAPI functions: (this documentation is not complete yet)
-`@api.extend()`: Extend an existing function. (Requires the extending function to be a generator, use `yield`.)  
+`@api.extend()`: Extend an existing function. (Requires the extending function to be a generator, use `yield`).  
 ```py
 # EXAMPLE:
 @api.extend('main')
