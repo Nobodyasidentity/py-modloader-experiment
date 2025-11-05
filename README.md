@@ -18,7 +18,7 @@ def _():
   yield
   print('this will run at the end of "main()"')
 ```
-`@api.on()`: Registera function to run when an event fires.  
+`@api.on()`: Register function to run when an event fires.  
 ```py
 # EXAMPLE:
 @api.on('start')
