@@ -35,4 +35,5 @@ try:
         MIXINS['main']()
         fire("exit")
 except Exception as e:print(f'Error: {e}');C=-1
-if __name__=='__main__':input(f'Game exited with code: {C}...')
+
+if __name__=='__main__':input(f"Game exited with code: '{C}'...")
