@@ -18,20 +18,20 @@ def _():
   yield
   print('this will run at the end of "main()"')
 ```
-`@api.on()`: Register function to run when an event fires.  
+`@api.on()`: Register a function to run when an event fires.  
 ```py
 # EXAMPLE:
 @api.on('start')
 def _():
     print('this will be ran once at the start of the game')
 ```
-`api.exitcode()`: edits / returns the current exit code for the game (returns api.GAME.C if i=None else edits api.GAME.C with i).  
+`api.exitcode()`: Edit / returns the current exit code for the game (returns api.GAME.C if i=None else edits api.GAME.C to i).  
 ```py
 # EXAMPLE:
 api.exitcode(67)
 print(api.exitcode())
 ```  
-`api.get_modified_mixins()`: returns a list of all functions that has been edited from default.mixins.  
+`api.get_modified_mixins()`: Returns a list of all functions that has been edited from their default.  
 ```py
 # EXAMPLE:
 print("Has 'main' been modified?", 'main' in api.get_modified_mixins())
