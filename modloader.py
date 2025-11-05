@@ -2,6 +2,7 @@ C=0
 try:
     if __name__=='__main__':
         from glob import glob,sys,os;sys.dont_write_bytecode=True
+        import atexit
         def get_base_path():return os.path.dirname(sys.executable) if getattr(sys,"frozen",False) else os.path.dirname(__file__)
         dir=get_base_path().replace('\\','/')
         print(f'Got "{dir}" as base path')
@@ -18,9 +19,13 @@ try:
         
         mixins={'main':main}
     MIXINS=dict(default.mixins)
-    EVENTS={"start":[],"exit":[],"tick":[]}
+    EVENTS={"start":[],"exit":[sys.exit],"tick":[]}
     
     if __name__=='__main__':
+        def on_exit():
+            global C
+            input(f"Game exited with code: '{C}'...")
+        atexit.register(on_exit)
         try:
             sys.path.append(dir+'/mods')
             mods=[f[len(dir)+6:len(f)-3] for f in glob(f'{dir}/mods/*.py')]
@@ -31,7 +36,6 @@ try:
         except Exception as e:print(f'Error occurred while loading "{i}": {e}')
         sys.path.append(dir)
         fire("start")
-        MIXINS['main']()
+        while 1:MIXINS['main']()
         fire("exit")
 except Exception as e:print(f'Error: {e}');C=-1
-if __name__=='__main__':input(f"Game exited with code: '{C}'...")
