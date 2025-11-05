@@ -7,7 +7,6 @@ try:
         print(f'Got "{dir}" as base path')
     sys.modules['modloader']=sys.modules[__name__]
     def fire(event_name, *a, **kw):
-        """Call all functions registered to an event."""
         funcs=EVENTS.get(event_name,[])
         for fn in funcs:
             try:fn(*a, **kw)
@@ -35,5 +34,4 @@ try:
         MIXINS['main']()
         fire("exit")
 except Exception as e:print(f'Error: {e}');C=-1
-
 if __name__=='__main__':input(f"Game exited with code: '{C}'...")
