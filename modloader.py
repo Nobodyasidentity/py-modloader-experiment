@@ -12,6 +12,7 @@ try:
         for fn in funcs:
             try:fn(*a, **kw)
             except Exception as e:print(f"[event:{event_name}] error in {fn.__name__}: {e}")
+        if event_name=='exit':sys.exit()
     class default:
         @staticmethod
         def main():
@@ -19,7 +20,7 @@ try:
         
         mixins={'main':main}
     MIXINS=dict(default.mixins)
-    EVENTS={"start":[],"exit":[sys.exit],"tick":[]}
+    EVENTS={"start":[],"exit":[],"tick":[]}
     
     if __name__=='__main__':
         def on_exit():
