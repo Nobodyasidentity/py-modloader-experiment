@@ -45,21 +45,27 @@ print(api.exitcode())
 # EXAMPLE:
 print("Has 'main' been modified?", 'main' in api.get_modified_mixins())
 ```  
-`api.c.clear`: type=property, clears the terminal from all text.  
+`api.c.clear`: Type = property, clears the terminal from all text.  
 ```py
 # EXAMPLE:
 print(api.c.clear+'This is now the only text in the terminal.')
 ```
-`api.fire()`: fires an event like "start", "exit" or "tick".
+`api.fire()`: Fires an event like "start", "exit" or "tick".
 ```py
 # EXAMPLE:
 @api.on('tick')
 def _():print('Another tick!')
 
 api.fire('tick')
+```
+`api.register()`: Overrides a function to let you make your own custom version.
+```py
+# EXAMPLE:
+@api.register('main')
+def _():print('This will replace the normal "main()" function')
 ```  
 ## examples:  
-`mods/guess_the_number.py` (can be found in `examples` folder): The terminal will prompt you to guess a random number (1 to 10) and every attempt will tell you if the correct number is smaller or bigger than your input  
+`mods/guess_the_number.py` (Can be found in `examples` folder): The terminal will prompt you to guess a random number (1 to 10) and every attempt will tell you if the correct number is smaller or bigger than your input  
 ```py
 import MainAPI as api
 if __name__=='__main__':api.SYS.exit()
