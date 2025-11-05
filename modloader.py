@@ -19,8 +19,9 @@ try:
             print('main function!')
         
         mixins={'main':main}
+        events={"start":[],"exit":[],"tick":[]}
     MIXINS=dict(default.mixins)
-    EVENTS={"start":[],"exit":[],"tick":[]}
+    EVENTS=dict(default.events)
     
     if __name__=='__main__':
         def on_exit():
