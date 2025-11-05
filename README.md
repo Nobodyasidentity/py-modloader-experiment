@@ -1,4 +1,5 @@
 This is a simple mod loader experiment made in Python.  
+Ngl I suck at Python so there will probably be a lot of wierd stuff.  
 If this is of any help to anyone I'd be happy :)  
 __________________________________________  
 ALL MODS MUST BE LOCATED INSIDE OF `mods/` AND END WITH `.py`.  
