@@ -13,7 +13,9 @@ def Game(min=1,max=10,a=None):
     while a!=r:
         a=_intinput(f'Guess a number {min} to {max}: 'if a==None else 'Try again: ')
         print(f'Wrong, the number is '+('higher'if a<r else'lower')+f' than {a}.'if a!=r else'')
+        api.fire('tick')
     print(f'Correct, the answer was {r}!')
+    api.fire('tick')
 
 @api.on('start')
 def _():
