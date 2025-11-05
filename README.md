@@ -8,7 +8,7 @@ ALL MODS MUST BE LOCATED INSIDE OF `mods/` AND END WITH `.py`.
 api=__import__('MainAPI')
 if __name__=='__main__':api.SYS.exit()
 ```
-## MainAPI functions: (the documentation is not complete)
+## MainAPI functions: (this documentation is not complete yet)
 `@api.extend()`: Extend an existing function. (Requires the extending function to be a generator, use `yield`.)  
 ```py
 # EXAMPLE:
