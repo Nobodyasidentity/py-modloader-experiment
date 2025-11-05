@@ -11,7 +11,7 @@ mods/           # the folder for all mods
 ```  
 ### At the start of a mod:
 ```py
-api=__import__('MainAPI')
+import MainAPI as api # or `api=__import__('MainAPI')`
 if __name__=='__main__':api.SYS.exit()
 ```
 ## MainAPI functions: (this documentation is not complete yet)
@@ -41,4 +41,31 @@ print(api.exitcode())
 ```py
 # EXAMPLE:
 print("Has 'main' been modified?", 'main' in api.get_modified_mixins())
+```  
+## examples:  
+`mods/guess_the_number.py` (can be found in `examples` folder):  
+```py
+import MainAPI as api
+if __name__=='__main__':api.SYS.exit()
+
+
+def _intinput(s):
+    while 1:
+        a=input(s)
+        try:return int(a)
+        except:print(f"'{a}' is not an integer")
+from random import randint
+@api.on('start')
+def _():
+    print(api.c.clear+'Guess the mumber mod!')
+@api.register('main')
+def _():
+    def Game(min=1,max=10,a=None):
+        r=randint(min,max)
+        while a!=r:
+            a=_intinput(f'Guess a number {min} to {max}: 'if a==None else 'Try again: ')
+            print(f'Wrong, the number is '+('higher'if a<r else'lower')+f' than {a}.'if a!=r else'')
+        print(f'Correct, the answer was {r}!')
+    Game()
+    api.exitcode(1)
 ```  
