@@ -1,5 +1,5 @@
 This is a simple mod loader experiment made in Python.  
-If this is of any help to anyone I'd be happy :).  
+If this is of any help to anyone I'd be happy :)  
 ### At the start of a mod:
 ```py
 api=__import__('MainAPI')
