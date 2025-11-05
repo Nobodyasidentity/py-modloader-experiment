@@ -3,6 +3,12 @@ Ngl I suck at Python so there will probably be a lot of wierd stuff.
 If this is of any help to anyone I'd be happy :)  
 __________________________________________  
 ALL MODS MUST BE LOCATED INSIDE OF `mods/` AND END WITH `.py`.  
+```
+mygame.exe      # just the modloader.py
+mods/           # the folder for all mods 
+├─ MainAPI.py   # included mod, very usefull for modding
+└─ mymod.py     # some mod, be creative!
+```  
 ### At the start of a mod:
 ```py
 api=__import__('MainAPI')
