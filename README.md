@@ -24,7 +24,7 @@ def _():
 def _():
     print('this will be ran once at the start of the game')
 ```
-`api.exitcode(i:int|none)`: edits / returns the current exit code for the game (returns api.GAME.C if i=None else edits api.GAME.C with i).  
+`api.exitcode()`: edits / returns the current exit code for the game (returns api.GAME.C if i=None else edits api.GAME.C with i).  
 ```py
 # EXAMPLE:
 api.exitcode(67)
