@@ -3,6 +3,7 @@ Ngl I suck at Python so there will probably be a lot of wierd stuff.
 If this is of any help to anyone I'd be happy :)  
 ## Update:  
 Added `api.c.clear` to clear the terminal  
+Added the main game's `fire()` to `api` as `api.fire()`  
 __________________________________________  
 ALL MODS MUST BE LOCATED INSIDE OF `mods/` AND END WITH `.py`.  
 ```
@@ -43,6 +44,19 @@ print(api.exitcode())
 ```py
 # EXAMPLE:
 print("Has 'main' been modified?", 'main' in api.get_modified_mixins())
+```  
+`api.c.clear`: type=property, clears the terminal from all text.  
+```py
+# EXAMPLE:
+print(api.c.clear+'This is now the only text in the terminal.')
+```
+`api.fire()`: fires an event like "start", "exit" or "tick".
+```py
+# EXAMPLE:
+@api.on('tick')
+def _():print('Another tick!')
+
+api.fire('tick')
 ```  
 ## examples:  
 `mods/guess_the_number.py` (can be found in `examples` folder): The terminal will prompt you to guess a random number (1 to 10) and every attempt will tell you if the correct number is smaller or bigger than your input  
