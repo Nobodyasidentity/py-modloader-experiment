@@ -2,7 +2,7 @@ C=0
 try:
     if __name__=='__main__':
         from glob import glob,sys,os;sys.dont_write_bytecode=True
-        import atexit
+        import atexit,signal
         def get_base_path():return os.path.dirname(sys.executable) if getattr(sys,"frozen",False) else os.path.dirname(__file__)
         dir=get_base_path().replace('\\','/')
         print(f'Got "{dir}" as base path')
@@ -25,7 +25,9 @@ try:
         def on_exit():
             global C
             input(f"Game exited with code: '{C}'...")
+        def _sigint_exit(*_):global C;C=-2;sys.exit()
         atexit.register(on_exit)
+        signal.signal(signal.SIGINT,_sigint_exit)
         try:
             sys.path.append(dir+'/mods')
             mods=[f[len(dir)+6:len(f)-3] for f in glob(f'{dir}/mods/*.py')]
