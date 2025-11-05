@@ -4,6 +4,7 @@ If this is of any help to anyone I'd be happy :)
 ## Update:  
 Added `api.c.clear` to clear the terminal  
 Added the main game's `fire()` to `api` as `api.fire()`  
+Fixed `fire('exit')` (now exits the game ......)  
 __________________________________________  
 ALL MODS MUST BE LOCATED INSIDE OF `mods/` AND END WITH `.py`.  
 ```
