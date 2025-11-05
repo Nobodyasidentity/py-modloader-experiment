@@ -22,6 +22,6 @@ def _():
     print(api.c.clear+'Guess the number mod!')
 @api.register('main')
 def _():
-    Game(1,10)
+    Game(1,100)
     api.exitcode(1)
     api.fire('exit')
