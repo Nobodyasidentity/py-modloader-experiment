@@ -39,7 +39,7 @@ def _():
 ```py
 # EXAMPLE:
 api.c.exitcode(67)
-print(api.exitcode())
+print(api.c.exitcode())
 ```  
 `api.get_modified_mixins()`: Returns a list of all functions that has been edited from their default.  
 ```py
