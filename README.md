@@ -35,7 +35,7 @@ def _():
 def _():
     print('this will be ran once at the start of the game')
 ```
-`api.exitcode()`: Edit / returns the current exit code for the game (returns api.GAME.C if i=None else edits api.GAME.C to i).  
+`api.c.exitcode()`: Edit / returns the current exit code for the game (returns api.GAME.C if i=None else edits api.GAME.C to i).  
 ```py
 # EXAMPLE:
 api.exitcode(67)
@@ -100,8 +100,8 @@ def _():
     print(api.c.clear+'Guess the number mod!')
 @api.register('main')
 def _():
-    api.exitcode(0)
+    api.c.exitcode(0)
     Game(1,100)
-    api.exitcode(1)
+    api.c.exitcode(1)
     api.c.clear
 ```  
