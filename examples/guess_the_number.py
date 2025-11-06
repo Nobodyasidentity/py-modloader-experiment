@@ -30,7 +30,7 @@ def _():
     print(api.c.clear+'Guess the number mod!')
 @api.register('main')
 def _():
-    api.exitcode(0)
+    api.c.exitcode(0)
     Game(1,100)
-    api.exitcode(1)
+    api.c.exitcode(1)
     api.c.clear
