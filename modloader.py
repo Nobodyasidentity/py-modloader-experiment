@@ -1,4 +1,4 @@
-C=0
+C,INPUT_ON_EXIT=0,True
 try:
     if __name__=='__main__':
         from glob import glob,sys,os;sys.dont_write_bytecode=True
@@ -6,7 +6,7 @@ try:
         def get_base_path():return os.path.dirname(sys.executable) if getattr(sys,"frozen",False) else os.path.dirname(__file__)
         dir=get_base_path().replace('\\','/')
         print(f'Got "{dir}" as base path')
-    sys.modules['modloader']=sys.modules[__name__]
+    sys.modules['&modloader']=sys.modules[__name__]
     def fire(event_name, *a, **kw):
         funcs=EVENTS.get(event_name,[])
         for fn in funcs:
@@ -25,8 +25,9 @@ try:
     
     if __name__=='__main__':
         def on_exit():
-            global C
-            input(f"Game exited with code: '{C}'...")
+            global C,INPUT_ON_EXIT
+            if INPUT_ON_EXIT==True:input(f"Game exited with code: '{C}'...")
+            else:print(f"Game exited with code: '{C}'...")
         def _sigint_exit(*_):global C;C=-2;sys.exit()
         atexit.register(on_exit)
         signal.signal(signal.SIGINT,_sigint_exit)
