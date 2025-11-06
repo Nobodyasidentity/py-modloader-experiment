@@ -7,17 +7,17 @@ SYS.modules['MainAPI']=SYS.modules[__name__]
 def get_base_path():return OS.path.dirname(SYS.executable) if getattr(SYS,"frozen",False) else OS.path.dirname(__file__)
 dir=get_base_path().replace('\\','/')
 SYS.path.append(OS.path.dirname(dir))
-GAME=SYS.modules.get('modloader')
+GAME=SYS.modules.get('&modloader')
 SYS.path.append(dir)
-
-def exitcode(i=None):
-    global GAME
-    if not i==None:GAME.C=i
-    else:return GAME.C
 
 class _c:
     @property
     def clear(self=None):OS.system('cls'if OS.name=='nt'else'clear');return''
+    def exitcode(self=None,i=None):
+        global GAME
+        if not i==None:GAME.C=i
+        else:return GAME.C
+    def input_on_exit(self,b):GAME.INPUT_ON_EXIT=bool(b)
 c=_c()
 # CHATGPT CODE {
 # --- Decorator systems ---
