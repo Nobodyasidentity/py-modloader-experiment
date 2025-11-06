@@ -38,7 +38,7 @@ def _():
 `api.c.exitcode()`: Edit / returns the current exit code for the game (returns api.GAME.C if i=None else edits api.GAME.C to i).  
 ```py
 # EXAMPLE:
-api.exitcode(67)
+api.c.exitcode(67)
 print(api.exitcode())
 ```  
 `api.get_modified_mixins()`: Returns a list of all functions that has been edited from their default.  
